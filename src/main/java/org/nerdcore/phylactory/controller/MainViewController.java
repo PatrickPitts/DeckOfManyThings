@@ -2,15 +2,27 @@ package org.nerdcore.phylactory.controller;
 
 import org.nerdcore.phylactory.localview.*;
 import org.nerdcore.phylactory.model.*;
+import org.nerdcore.phylactory.repository.TestRepository;
+import org.nerdcore.phylactory.services.TestServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.stereotype.Controller;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Controller
 public class MainViewController {
+
+    @Autowired
+    static TestRepository testRepository;
+
+    @Autowired
+    static TestServices testServices;
 
     public static MainView mainView;
 
@@ -19,6 +31,11 @@ public class MainViewController {
     public static Map<Integer, Party> allParties = new HashMap<>();
 
     public static void initView(){
+        System.out.println(testRepository);
+        System.out.println(testServices);
+        for(Test t: testRepository.findAll()){
+            System.out.println(t);
+        }
 
         allParties = DataController.getAllPartiesMap();
 

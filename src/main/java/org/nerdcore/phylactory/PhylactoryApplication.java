@@ -18,11 +18,6 @@ public class PhylactoryApplication {
 
         ConfigurableApplicationContext context = builder.run(args);
         MainViewController.initView();
-
-//        new SpringApplicationBuilder(PhylactoryApplication.class)
-//                .web(WebApplicationType.NONE)
-//                .run(args);
-        //SpringApplication.run(PhylactoryApplication.class, args);;
     }
 
 }
